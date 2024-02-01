@@ -16,10 +16,7 @@ function readFormData(){
     formData["fullName"] = document.getElementById("fullName").value;
     formData["empCode"] = document.getElementById("empCode").value;
     formData["email"] = document.getElementById("email").value;
-    formData["salary"] = document.getElementById("salary").value;
-    formData["attendance"] = document.getElementById("attendance").value;
     formData["medicalRecord"] = document.getElementById("medicalRecord").value;
-    formData["city"] = document.getElementById("city").value;
     formData["workEnd"] = document.getElementById("workEnd").value;
 
     return formData
@@ -38,16 +35,12 @@ function insertNewRecord(data){
     cell4.innerHTML = data.empCode;
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = data.email;
-    cell6= newRow.insertCell(5);
-    cell6.innerHTML = data.salary;
+    cell6 = newRow.insertCell(5);
+    cell6.innerHTML = data.medicalRecord;
     cell7 = newRow.insertCell(6);
-    cell7.innerHTML = data.attendance;
+    cell7.innerHTML = data.workEnd;
     cell8 = newRow.insertCell(7);
-    cell8.innerHTML = data.city;
-    cell9 = newRow.insertCell(8);
-    cell9.innerHTML = data.workEnd;
-    cell10 = newRow.insertCell(9);
-    cell10.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+    cell8.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                         <a onClick="onDelete(this)">Delete</a>`
 }
 
@@ -57,9 +50,7 @@ function resetForm(){
     document.getElementById("fullName").value = "";
     document.getElementById("empCode").value = "";
     document.getElementById("email").value = "";
-    document.getElementById("salary").value = "";
-    document.getElementById("attendance").value = "";
-    document.getElementById("city").value = "";
+    document.getElementById("medicalRecord").value = "";
     document.getElementById("workEnd").value = "";
     selectedRow = null
 }
@@ -71,10 +62,8 @@ function onEdit(td){
     document.getElementById("fullName").value = selectedRow.cells[2].innerHTML;
     document.getElementById("empCode").value = selectedRow.cells[3].innerHTML;
     document.getElementById("email").value = selectedRow.cells[4].innerHTML;
-    document.getElementById("salary").value = selectedRow.cells[5].innerHTML;
-    document.getElementById("attendance").value = selectedRow.cells[6].innerHTML;
-    document.getElementById("city").value = selectedRow.cells[7].innerHTML;
-    document.getElementById("workEnd").value = selectedRow.cells[8].innerHTML;
+    document.getElementById("medicalRecord").value = selectedRow.cells[5].innerHTML;
+    document.getElementById("workEnd").value = selectedRow.cells[6].innerHTML;
 }
 
 function updateRecord(formData){
@@ -83,10 +72,8 @@ function updateRecord(formData){
      selectedRow.cells[2].innerHTML = formData.fullName;
      selectedRow.cells[3].innerHTML = formData.empCode;
      selectedRow.cells[4].innerHTML = formData.email;
-     selectedRow.cells[5].innerHTML = formData.salary;
-     selectedRow.cells[6].innerHTML = formData.attendance;
-     selectedRow.cells[7].innerHTML = formData.city;
-     selectedRow.cells[8].innerHTML = formData.workEnd;
+     selectedRow.cells[5].innerHTML = formData.medicalRecord;
+     selectedRow.cells[6].innerHTML = formData.workEnd;
 
 }
 
